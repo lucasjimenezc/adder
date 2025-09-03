@@ -19,7 +19,7 @@ jobs:
 
       - name: Package IP with Vivado
         run: |
-          vivado -mode batch -source adder/scripts/packager_adder.tcl
+          vivado -mode batch -source scripts/packager_adder.tcl
 
 
       - name: Upload IP artifact
