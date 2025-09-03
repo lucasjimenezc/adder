@@ -16,6 +16,7 @@ jobs:
       - name: Set up Vivado
         run: |
           echo "Runner con Vivado instalado"
+          pwd
 
       - name: Package IP with Vivado
         run: |
