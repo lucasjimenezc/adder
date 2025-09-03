@@ -7,7 +7,7 @@ on:
 
 jobs:
   package-ip:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout repo
@@ -18,12 +18,10 @@ jobs:
           echo "Aquí normalmente pondrías docker con Vivado o runner con Vivado instalado"
           # Ejemplo: docker run xilinx/vivado:2023.1 ...
 
-      - name: Package IP
+      - name: Package IP with Vivado
         run: |
-          mkdir -p packaged_ip/adder_v1_0
-          # Aquí llamas a Vivado en batch para empaquetar
-          # vivado -mode batch -source scripts/package_adder.tcl
-          echo "Simulando IP empaquetada" > packaged_ip/adder_v1_0/component.xml
+          vivado -mode batch -source scripts/package_adder.tcl
+
 
       - name: Upload IP artifact
         uses: actions/upload-artifact@v4
