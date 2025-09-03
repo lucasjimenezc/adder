@@ -1,0 +1,32 @@
+name: Package and Release IP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  package-ip:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Vivado
+        run: |
+          echo "Aquí normalmente pondrías docker con Vivado o runner con Vivado instalado"
+          # Ejemplo: docker run xilinx/vivado:2023.1 ...
+
+      - name: Package IP
+        run: |
+          mkdir -p packaged_ip/adder_v1_0
+          # Aquí llamas a Vivado en batch para empaquetar
+          # vivado -mode batch -source scripts/package_adder.tcl
+          echo "Simulando IP empaquetada" > packaged_ip/adder_v1_0/component.xml
+
+      - name: Upload IP artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: adder_v1_0
+          path: packaged_ip/adder_v1_0
