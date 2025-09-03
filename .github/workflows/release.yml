@@ -15,12 +15,11 @@ jobs:
 
       - name: Set up Vivado
         run: |
-          echo "Aquí normalmente pondrías docker con Vivado o runner con Vivado instalado"
-          # Ejemplo: docker run xilinx/vivado:2023.1 ...
+          echo "Runner con Vivado instalado"
 
       - name: Package IP with Vivado
         run: |
-          vivado -mode batch -source scripts/package_adder.tcl
+          vivado -mode batch -source adder/scripts/package_adder.tcl
 
 
       - name: Upload IP artifact
