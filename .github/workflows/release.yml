@@ -16,11 +16,10 @@ jobs:
       - name: Set up Vivado
         run: |
           echo "Runner con Vivado instalado"
-          pwd
 
       - name: Package IP with Vivado
         run: |
-          vivado -mode batch -source adder/scripts/package_adder.tcl
+          vivado -mode batch -source adder/scripts/packager_adder.tcl
 
 
       - name: Upload IP artifact
